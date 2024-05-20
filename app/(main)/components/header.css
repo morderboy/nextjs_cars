@@ -1,0 +1,33 @@
+/* Общие стили для навигационного меню */
+nav {
+    background-color: #000000; /* Цвет фона */
+    padding: 10px; /* Отступы */
+}
+  
+ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+  
+li {
+    display: inline-block; /* Элементы списка располагаются в строку */
+}
+
+.login-btn,
+.register-btn,
+.logout-btn {
+    background-color: #000000; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px 20px; /* Внутренние отступы */
+    border: none; /* Убираем границы */
+    cursor: pointer; /* Устанавливаем указатель на кнопку */
+    margin-right: 0px; /* Отступ справа между кнопками */
+}
+
+.login-btn:hover,
+.register-btn:hover,
+.logout-btn:hover {
+    background-color: #676767; /* Цвет фона при наведении */
+}
