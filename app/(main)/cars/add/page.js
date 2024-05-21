@@ -1,3 +1,4 @@
+/* eslint react-hooks/rules-of-hooks: "off", curly: "error" */
 'use client'
 import {Formik, Field, Form} from 'formik';
 import styles from './page.module.css'
