@@ -20,7 +20,7 @@ export default function ServiceEdit({ params }) {
     // Функция для получения данных с сервера
     const fetchData = async () => {
     try {
-        const response = await axios.get(`http://5.35.85.98/api/car/service/one/${params.serv_id}`, {
+        const response = await axios.get(`${window.location.origin}/api/car/service/one/${params.serv_id}`, {
         headers: {
             'Authorization': `Bearer ${token}`,
             'X-CSRFToken': token
@@ -88,7 +88,7 @@ export default function ServiceEdit({ params }) {
                 };
 
                 try {
-                const response = await axios.put(`http://5.35.85.98/api/service/update/${params.serv_id}`, payload, {
+                const response = await axios.put(`${window.location.origin}/api/service/update/${params.serv_id}`, payload, {
                     headers: {
                     'Authorization': `Bearer ${token}`,
                     'X-CSRFToken': token
@@ -96,7 +96,7 @@ export default function ServiceEdit({ params }) {
                 });
                 console.log(response.data);
                 if (response.status === 200) {
-                    window.location.href = `http://5.35.85.98/services/${params.id}`;
+                    window.location.href = `${window.location.origin}/services/${params.id}`;
                 }
                 } catch (error) {
                 console.error('Error:', error);
@@ -151,7 +151,7 @@ export default function ServiceEdit({ params }) {
                     </div>
                     <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <button type="submit" className="btn btn-dark me-md-2">Отправить</button>
-                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = `http://5.35.85.98/services/${params.id}`}>Назад</button>
+                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = `${window.location.origin}/services/${params.id}`}>Назад</button>
                     </div>
                 </Form>
                 );

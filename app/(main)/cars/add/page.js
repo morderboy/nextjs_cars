@@ -35,7 +35,7 @@ export default function AddCar() {
               throw new Error('User ID or CSRF token is not set');
             }
             try {
-              const response = await axios.post('http://5.35.85.98/api/car/create', values, {
+              const response = await axios.post(`${window.location.origin}/api/car/create`, values, {
                 headers: {
                   'Authorization': `Bearer ${csrftoken}`,
                   'X-CSRFToken': csrftoken
@@ -45,7 +45,7 @@ export default function AddCar() {
               // Обработайте успешный ответ (например, сохраните токен, перенаправьте пользователя и т.д.)
     
               if (response.status === 200) {
-                window.location.href = 'http://5.35.85.98/cars';
+                window.location.href = `${window.location.origin}/cars`;
               }
             } catch (error) {
               console.error('Error:', error);
@@ -74,7 +74,7 @@ export default function AddCar() {
                 
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                   <button type="submit" className="btn btn-dark me-md-2">Отправить</button>
-                  <button type="button" className="btn btn-dark" onClick={() => window.location.href = 'http://5.35.85.98/cars'}>Назад</button>
+                  <button type="button" className="btn btn-dark" onClick={() => window.location.href = `${window.location.origin}/cars`}>Назад</button>
                 </div>
               </Form>
             );

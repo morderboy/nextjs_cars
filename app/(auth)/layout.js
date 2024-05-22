@@ -3,7 +3,7 @@ import styles from "./layout.module.css"
 
 export default function LoginLayout({ children }) {
   const handleClick = () => {
-    window.location.href = 'http://5.35.85.98/';
+    window.location.href = `${window.location.origin}/`;
   }
 
     return (

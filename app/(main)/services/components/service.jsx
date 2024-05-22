@@ -22,13 +22,13 @@ export default function Service(
     }) {
     const handleEdit = async () => {
         // реализация функции редактирования
-        window.location.href = `http://5.35.85.98/services/${car_id}/edit/${id}`;
+        window.location.href = `${window.location.origin}/services/${car_id}/edit/${id}`;
     };
 
     const handleDelete = async () => {
         try {
             const token = Cookies.get('csrftoken');
-            const response = await axios.delete(`http://5.35.85.98/api/service/delete/${id}`, {
+            const response = await axios.delete(`${window.location.origin}/api/service/delete/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'X-CSRFToken': token
@@ -39,7 +39,7 @@ export default function Service(
         } catch (error) {
             console.error('Error deleting service:', error);
         } finally {
-            window.location.href = `http://5.35.85.98/services/${car_id}`;
+            window.location.href = `${window.location.origin}/services/${car_id}`;
         }
     };
 

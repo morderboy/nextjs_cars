@@ -21,7 +21,7 @@ export default function EditCar({params}) {
     // Функция для получения данных с сервера
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://5.35.85.98/api/car/one/${params.id}`, {
+            const response = await axios.get(`${window.location.origin}/api/car/one/${params.id}`, {
             headers: {
                 'Authorization': `Bearer ${csrftoken}`,
                 'X-CSRFToken': csrftoken
@@ -69,7 +69,7 @@ export default function EditCar({params}) {
                 throw new Error('User ID or CSRF token is not set');
                 }
                 try {
-                const response = await axios.put(`http://5.35.85.98/api/car/update/${params.id}`, values, {
+                const response = await axios.put(`${window.location.origin}/api/car/update/${params.id}`, values, {
                     headers: {
                     'Authorization': `Bearer ${csrftoken}`,
                     'X-CSRFToken': csrftoken
@@ -79,7 +79,7 @@ export default function EditCar({params}) {
                 // Обработайте успешный ответ (например, сохраните токен, перенаправьте пользователя и т.д.)
         
                 if (response.status === 200) {
-                    window.location.href = 'http://5.35.85.98/cars';
+                    window.location.href = `${window.location.origin}/cars`;
                 }
                 } catch (error) {
                 console.error('Error:', error);
@@ -101,7 +101,7 @@ export default function EditCar({params}) {
                     
                     <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <button type="submit" className="btn btn-dark me-md-2">Отправить</button>
-                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = 'http://5.35.85.98/cars'}>Назад</button>
+                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = `${window.location.origin}/cars`}>Назад</button>
                     </div>
                 </Form>
                 );

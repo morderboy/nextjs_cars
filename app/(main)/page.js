@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://5.35.85.98/api/notify/${id}`, {
+        const response = await axios.get(`${window.location.origin}/api/notify/${id}`, {
           headers: {
             'Authorization': `Bearer ${csrftoken}`,
             'X-CSRFToken': csrftoken

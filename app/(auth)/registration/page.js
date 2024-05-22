@@ -14,7 +14,7 @@ export default function Registration() {
         }}
         onSubmit={async (values, { setSubmitting }) => {
           try {
-            const response = await axios.post('http://5.35.85.98/api/register', values);
+            const response = await axios.post(`${window.location.origin}/api/register`, values);
             console.log(response.data);
             // Обработайте успешный ответ (например, перенаправьте пользователя или покажите сообщение)
           } catch (error) {
@@ -38,7 +38,7 @@ export default function Registration() {
               <button type="submit" className="btn btn-dark me-md-2" disabled={isSubmitting}>
                 Отправить
               </button>
-              <button type="button" className="btn btn-dark w-100" onClick={() => window.location.href = 'http://5.35.85.98/login'}>
+              <button type="button" className="btn btn-dark w-100" onClick={() => window.location.href = `${window.location.origin}/login`}>
                 Войти
               </button>
             </div>

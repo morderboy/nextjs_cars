@@ -15,7 +15,7 @@ export default function Header() {
   const handleLogout = () => {
     Cookies.remove('csrftoken');
     Cookies.remove('id');
-    window.location.href = 'http://5.35.85.98/'; // Перенаправление на страницу логина после выхода
+    window.location.href = `${window.location.origin}/`; // Перенаправление на страницу логина после выхода
   };
 
   return (
@@ -25,10 +25,10 @@ export default function Header() {
           {csrftoken ? (
             <>
                 <li>
-                    <button className="logout-btn" onClick={() => window.location.href = 'http://5.35.85.98/'}>Главная</button>
+                    <button className="logout-btn" onClick={() => window.location.href = `${window.location.origin}/`}>Главная</button>
                 </li>
                 <li>
-                    <button className="logout-btn" onClick={() => window.location.href = 'http://5.35.85.98/cars'}>Мои Машины</button>
+                    <button className="logout-btn" onClick={() => window.location.href = `${window.location.origin}/cars`}>Мои Машины</button>
                 </li>
                 <li>
                     <button className="logout-btn" onClick={handleLogout}>Выйти</button>
@@ -37,10 +37,10 @@ export default function Header() {
           ) : (
             <>
               <li>
-                <button className="login-btn" onClick={() => window.location.href = 'http://5.35.85.98/login'}>Логин</button>
+                <button className="login-btn" onClick={() => window.location.href = `${window.location.origin}/login`}>Логин</button>
               </li>
               <li>
-                <button className="register-btn" onClick={() => window.location.href = 'http://5.35.85.98/registration'}>Регистрация</button>
+                <button className="register-btn" onClick={() => window.location.href = `${window.location.origin}/registration`}>Регистрация</button>
               </li>
             </>
           )}

@@ -16,7 +16,7 @@ export default function CarPage(){
         const user_id = Cookies.get('id');
         const token = Cookies.get('csrftoken');
         try {
-          const response = await axios.get(`http://5.35.85.98/api/car/${user_id}`, {
+          const response = await axios.get(`${window.location.origin}/api/car/${user_id}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
               'X-CSRFToken': token
@@ -74,7 +74,7 @@ export default function CarPage(){
         )
       )}
     <div>
-      <button className='btn btn-dark' onClick={() => window.location.href = 'http://5.35.85.98/cars/add'}>Добавить машину</button>
+      <button className='btn btn-dark' onClick={() => window.location.href = `${window.location.origin}/cars/add`}>Добавить машину</button>
     </div>
     </main>
   );

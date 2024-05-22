@@ -20,7 +20,7 @@ export default function ServicePage({ params }) {
     // Функция для получения данных с сервера
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://5.35.85.98/api/car/service/${params.id}`, {
+        const response = await axios.get(`${window.location.origin}/api/car/service/${params.id}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'X-CSRFToken': token
@@ -108,7 +108,7 @@ export default function ServicePage({ params }) {
       )
     )}
     <div>
-      <button className='btn btn-dark' onClick={() => window.location.href = `http://5.35.85.98/services/${params.id}/add`}>Добавить тех. осмотр</button>
+      <button className='btn btn-dark' onClick={() => window.location.href = `${window.location.origin}/services/${params.id}/add`}>Добавить тех. осмотр</button>
     </div>
     </main>
   );

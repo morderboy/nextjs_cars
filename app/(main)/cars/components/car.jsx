@@ -4,13 +4,13 @@ import Cookies from 'js-cookie';
 
 export default function Car({ name, number, id }) {
   const handleEdit = async () => {
-    window.location.href = `http://5.35.85.98/cars/edit/${id}`
+    window.location.href = `${window.location.origin}/cars/edit/${id}`
 };
 
 const handleDelete = async () => {
     try {
         const token = Cookies.get('csrftoken'); 
-        const response = await axios.delete(`http://5.35.85.98/api/car/delete/${id}`, {
+        const response = await axios.delete(`${window.location.origin}/api/car/delete/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'X-CSRFToken': token
@@ -21,13 +21,13 @@ const handleDelete = async () => {
     } catch (error) {
         console.error('Error deleting car:', error);
     } finally {
-      window.location.href = `http://5.35.85.98/cars`
+      window.location.href = `${window.location.origin}/cars`
     }
     
 };
 
 const handleTechInspection = async () => {
-  window.location.href = `http://5.35.85.98/services/${id}`
+  window.location.href = `${window.location.origin}/services/${id}`
 };
 
     return (

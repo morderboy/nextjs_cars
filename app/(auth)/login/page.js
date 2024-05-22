@@ -15,7 +15,7 @@ export default function Login() {
         }}
         onSubmit={async (values, { setSubmitting }) => {
           try {
-            const response = await axios.post('http://5.35.85.98/api/login', values);
+            const response = await axios.post(`${window.location.origin}/api/login`, values);
             console.log(response.data);
             // Обработайте успешный ответ (например, сохраните токен, перенаправьте пользователя и т.д.)
             const token = response.data.csrf_token;
@@ -26,7 +26,7 @@ export default function Login() {
             Cookies.set('id', id, { expires: 7 });
 
             if (response.data.success == true){
-              window.location.href = 'http://5.35.85.98/'
+              window.location.href = `${window.location.origin}/`
             }
           } catch (error) {
             console.error('Error:', error);
@@ -47,7 +47,7 @@ export default function Login() {
               <button type="submit" className="btn btn-dark me-md-2" disabled={isSubmitting}>
                 Отправить
               </button>
-              <button type="button" className="btn btn-dark" onClick={() => window.location.href = 'http://5.35.85.98/registration'}>
+              <button type="button" className="btn btn-dark" onClick={() => window.location.href = `${window.location.origin}/registration`}>
                 Зарегистрироваться
               </button>
             </div>

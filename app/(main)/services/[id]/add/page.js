@@ -48,7 +48,7 @@ export default function AddService({params}){
                 };
 
                 try {
-                const response = await axios.post('http://5.35.85.98/api/car/service/create', payload, {
+                const response = await axios.post(`${window.location.origin}/api/car/service/create`, payload, {
                     headers: {
                     'Authorization': `Bearer ${csrftoken}`,
                     'X-CSRFToken': csrftoken
@@ -56,7 +56,7 @@ export default function AddService({params}){
                 });
                 console.log(response.data);
                 if (response.status === 200) {
-                    window.location.href = `http://5.35.85.98/services/${params.id}`;
+                    window.location.href = `${window.location.origin}/services/${params.id}`;
                 }
                 } catch (error) {
                 console.error('Error:', error);
@@ -111,7 +111,7 @@ export default function AddService({params}){
                     </div>
                     <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <button type="submit" className="btn btn-dark me-md-2">Отправить</button>
-                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = `http://5.35.85.98/services/${params.id}`}>Назад</button>
+                    <button type="button" className="btn btn-dark" onClick={() => window.location.href = `${window.location.origin}/services/${params.id}`}>Назад</button>
                     </div>
                 </Form>
                 );
